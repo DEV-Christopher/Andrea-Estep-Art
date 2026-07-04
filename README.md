@@ -10,8 +10,11 @@ Sun-bleached editorial aesthetic: warm paper background, terracotta / ochre /
 olive palette, Fraunces display serif, hand-written annotations, painterly SVG
 placeholders until artwork photography arrives.
 
-Sections: Works (with lightbox + inquiry prefill) · The Garden Studio ·
-The Bungalow Gallery · About · Contact.
+Pages: `index.html` (Works · The Garden Studio · The Bungalow Gallery ·
+About · Contact) and `collection.html` (the full collection, including
+collected/sold works). Shared styles in `styles.css`, shared behavior in
+`site.js` (blinking clock + live Venice temperature via open-meteo,
+scroll reveals, lightbox with cross-page inquiry prefill).
 
 ## Adding artwork photos
 
@@ -22,8 +25,8 @@ with an HTML comment in `index.html` (e.g. `images/ethereal-sunset.jpg`,
 
 ## Tech Stack
 
-- Single static `index.html` (no build step)
-- Vanilla CSS + JS — scroll reveals, marquee, lightbox, Venice local time
+- Static HTML (no build step)
+- Vanilla CSS + JS — scroll reveals, marquee, lightbox, Venice local time & temp
 - Google Fonts: Fraunces, Karla, Caveat
 - Contact form via Formspree
 - Hosted on Vercel
