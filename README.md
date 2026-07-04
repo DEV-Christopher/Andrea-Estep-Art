@@ -1,28 +1,32 @@
-# Andrea Estep - Artist Portfolio
+# Andrea Estep — Venice Beach Painter
 
-A modern, glassmorphism-style portfolio website showcasing paintings and photography by Andrea Estep.
+The portfolio site for Andrea Estep: original paintings made in the garden of a
+1920s Venice Beach bungalow and dried in the California sun. Originals only —
+no prints, no editions, ever.
 
-## Features
+## Design
 
-- Responsive design with Apple Glass UI aesthetic
-- Smooth animations and hover effects
-- Dedicated sections for paintings and photography
-- Contact form integration
-- Mobile-friendly navigation
+Sun-bleached editorial aesthetic: warm paper background, terracotta / ochre /
+olive palette, Fraunces display serif, hand-written annotations, painterly SVG
+placeholders until artwork photography arrives.
+
+Sections: Works (with lightbox + inquiry prefill) · The Garden Studio ·
+The Bungalow Gallery · About · Contact.
+
+## Adding artwork photos
+
+Drop photos into `images/` and swap each placeholder `<svg>` inside a
+`.work-media` / `.frame` element for an `<img>` — each swap point is marked
+with an HTML comment in `index.html` (e.g. `images/ethereal-sunset.jpg`,
+`images/garden.jpg`, `images/bungalow.jpg`, `images/andrea.jpg`).
 
 ## Tech Stack
 
-- HTML5
-- CSS3 (with glassmorphism effects)
-- Inter font family
+- Single static `index.html` (no build step)
+- Vanilla CSS + JS — scroll reveals, marquee, lightbox, Venice local time
+- Google Fonts: Fraunces, Karla, Caveat
+- Contact form via Formspree
 - Hosted on Vercel
-
-## Setup
-
-1. Clone this repository
-2. Update the contact form action URL in `index.html`
-3. Add your artwork images to the `images/` folder
-4. Update content as needed
 
 ## Deployment
 
