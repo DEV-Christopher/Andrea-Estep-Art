@@ -464,6 +464,40 @@ header.scrolled { border-bottom-color: var(--hairline-soft); }
 .collection-cta p { margin: 18px auto 0; max-width: 46ch; color: var(--ink-soft); }
 .collection-cta .btn { margin-top: 34px; }
 
+/* ---------- Commissions (collection page) ---------- */
+.commission { padding: 0 0 clamp(90px, 12vh, 150px); }
+.commission-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 100px);
+    align-items: center;
+}
+.commission-grid > * { min-width: 0; }
+.commission h2 { font-size: clamp(2.4rem, 4.6vw, 4rem); font-weight: 380; max-width: 14ch; }
+.commission h2 em { color: var(--terracotta); }
+.commission-copy p { margin-top: 24px; color: var(--ink-soft); max-width: 54ch; }
+.commission-copy p strong { color: var(--ink); font-weight: 700; }
+.commission .btn { margin-top: 36px; }
+.commission-media { position: relative; }
+.commission-media .frame {
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px -24px rgba(42,36,27,0.35);
+    transform: rotate(1.2deg);
+    max-width: 480px;
+    margin-left: auto;
+}
+.commission-media .hand-note {
+    position: absolute;
+    bottom: -18px;
+    right: 6px;
+    background: var(--paper);
+    padding: 6px 14px;
+    box-shadow: 0 10px 24px -12px rgba(42,36,27,0.3);
+    border-radius: 6px;
+}
+
 /* ---------- Manifesto band ---------- */
 .manifesto {
     margin-top: clamp(80px, 11vw, 140px);
@@ -792,11 +826,12 @@ footer {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
-    .studio-grid, .bungalow-grid, .about-grid, .contact-grid {
+    .studio-grid, .bungalow-grid, .about-grid, .contact-grid, .commission-grid {
         grid-template-columns: 1fr;
     }
     .bungalow-grid .bungalow-media { order: 2; }
     .about-media { max-width: 440px; }
+    .commission-media .frame { margin-left: 0; }
     .lightbox-inner { grid-template-columns: 1fr; }
     .lightbox-media { max-height: 44vh; overflow: hidden; }
 }
