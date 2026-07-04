@@ -108,7 +108,7 @@ header {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 1000;
-    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    background: color-mix(in srgb, var(--paper) 83%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid transparent;
