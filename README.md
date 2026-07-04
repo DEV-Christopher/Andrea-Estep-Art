@@ -19,11 +19,11 @@ scroll reveals, lightbox with cross-page inquiry prefill).
 ## Adding artwork photos
 
 Real photos live in `images/` (bungalow, Andrea's portrait, French Surfer
-Girl in Venice, Venice Bungalow, the commission delivery photo). Remaining
-placeholders: the four "recent paintings" on both pages and the garden photo
-in the Studio section — swap each placeholder `<svg>` inside a `.work-media`
-/ `.frame` element for an `<img>`. Before adding new photos, resize to
-~1600px max and strip EXIF (iPhone photos embed GPS coordinates).
+Girl in Venice, Venice Bungalow, the commission delivery photo). The only
+remaining placeholder is the garden photo in the Studio section. To add a
+new work, copy an existing `.work` card in both `index.html` and
+`collection.html`. Before adding new photos, resize to ~1600px max and
+strip EXIF (iPhone photos embed GPS coordinates).
 
 ## Tech Stack
 
