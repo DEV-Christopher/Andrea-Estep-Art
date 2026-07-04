@@ -441,8 +441,11 @@ header.scrolled { border-bottom-color: var(--hairline-soft); }
     margin-right: 7px;
     transform: translateY(-1px);
 }
-.work-status.collected { color: var(--ink-faint); }
-.work-status.collected::before { background: var(--ink-faint); }
+/* Collected reads as an honor, not an out-of-stock state: gold badge.
+   Text is a deepened gold for contrast on paper; the dot keeps the
+   brighter sun tone. */
+.work-status.collected { color: #A87A1E; }
+.work-status.collected::before { background: var(--sun); }
 
 .works-foot {
     margin-top: clamp(56px, 8vw, 96px);
