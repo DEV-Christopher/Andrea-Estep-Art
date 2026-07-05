@@ -760,6 +760,20 @@ body.nav-open .nav-toggle span:last-child { transform: translateY(-4px) rotate(-
     color: var(--ink);
 }
 .contact-form .btn:hover { background: var(--sun); color: var(--ink); box-shadow: 0 14px 30px -12px rgba(217,156,43,0.5); }
+.contact-form .btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+.form-success { padding: 40px 0; }
+.form-success-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 34px;
+    color: var(--sun);
+}
+.form-success-body {
+    margin-top: 16px;
+    color: rgba(247, 241, 227, 0.75);
+    max-width: 40ch;
+}
 .contact ::selection { background: var(--sun); color: var(--ink); }
 
 /* ---------- Footer ---------- */

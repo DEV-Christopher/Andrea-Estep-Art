@@ -87,6 +87,37 @@ function setInquiry(text) {
     else sessionStorage.setItem('inquiry', text);
 }
 
+// Contact form: submit via fetch and show an on-brand success state
+// (falls back to a normal POST to Formspree if fetch fails)
+(function () {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+    let fellBack = false;
+    form.addEventListener('submit', async (e) => {
+        if (fellBack) return;
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        try {
+            const res = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (!res.ok) throw new Error('formspree ' + res.status);
+            form.innerHTML =
+                '<div class="form-success">' +
+                '<p class="form-success-title">Sent to Venice <span aria-hidden="true">☀</span></p>' +
+                '<p class="form-success-body">Andrea reads everything herself — usually from the garden. She\'ll write back soon.</p>' +
+                '</div>';
+        } catch (err) {
+            fellBack = true;
+            form.submit();
+        }
+    });
+})();
+
 // Lightbox
 (function () {
     const box = document.getElementById('lightbox');
