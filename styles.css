@@ -868,6 +868,9 @@ footer {
     .main-nav .nav-collection::after { display: none; }
     header .locale { display: none; }
     .locale-hero { display: flex; margin-bottom: 26px; }
+    /* Locale line sits right below the eyebrow on mobile — drop the
+       redundant role/location from the eyebrow there */
+    .eyebrow .eyebrow-extra { display: none; }
     html { scroll-padding-top: 110px; }
     .hero { padding-top: 150px; }
     .hero-sun { opacity: 0.5; }
