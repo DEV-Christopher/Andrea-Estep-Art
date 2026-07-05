@@ -384,6 +384,12 @@ body.nav-open .nav-toggle span:last-child { transform: translateY(-4px) rotate(-
 .about-grid > *, .contact-grid > *, .lightbox-inner > * { min-width: 0; }
 
 .work { cursor: pointer; text-decoration: none; color: inherit; }
+
+/* On desktop, cap card width against viewport height so a full
+   painting + caption fits on screen (3:4 media ≈ 1.33× width tall) */
+@media (min-width: 821px) {
+    .works-grid .work, .collection-grid .work { max-width: min(100%, 54vh); }
+}
 .works-grid .work:nth-child(4n+1), .collection-grid .work:nth-child(4n+1) { grid-column: 1 / span 6; }
 .works-grid .work:nth-child(4n+2), .collection-grid .work:nth-child(4n+2) { grid-column: 8 / span 5; margin-top: clamp(60px, 9vw, 140px); }
 .works-grid .work:nth-child(4n+3), .collection-grid .work:nth-child(4n+3) { grid-column: 2 / span 5; margin-top: clamp(-20px, -1vw, 0px); }
