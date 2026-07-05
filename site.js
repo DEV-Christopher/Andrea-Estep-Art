@@ -92,11 +92,12 @@ function setInquiry(text) {
         work.addEventListener('click', (ev) => {
             ev.preventDefault();
             const collected = work.dataset.status === 'collected';
+            const collector = work.dataset.collector;
             media.innerHTML = work.querySelector('.work-media').innerHTML;
             title.textContent = work.dataset.title;
             meta.textContent = work.dataset.meta;
             price.textContent = collected
-                ? 'Collected · Original, 1 of 1'
+                ? 'Collected' + (collector ? ' by ' + collector : '') + ' · Original, 1 of 1'
                 : work.dataset.price + ' · Original, 1 of 1';
             blurb.textContent = work.dataset.blurb;
             inquire.dataset.inquiry = collected
