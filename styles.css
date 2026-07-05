@@ -857,6 +857,15 @@ footer {
     .header-inner { flex-wrap: wrap; gap: 10px; padding-top: 14px; padding-bottom: 12px; }
     .main-nav { order: 3; width: 100%; gap: 20px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
     .main-nav::-webkit-scrollbar { display: none; }
+    /* Collection is the only standalone page — give it a pill so it
+       doesn't read like just another anchor link */
+    .main-nav .nav-collection {
+        color: var(--paper);
+        background: var(--terracotta);
+        padding: 5px 14px;
+        border-radius: 999px;
+    }
+    .main-nav .nav-collection::after { display: none; }
     header .locale { display: none; }
     .locale-hero { display: flex; margin-bottom: 26px; }
     html { scroll-padding-top: 110px; }
