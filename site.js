@@ -97,8 +97,8 @@ function setInquiry(text) {
             title.textContent = work.dataset.title;
             meta.textContent = work.dataset.meta;
             price.textContent = collected
-                ? 'Collected' + (collector ? ' by ' + collector : '') + ' · Original, 1 of 1'
-                : work.dataset.price + ' · Original, 1 of 1';
+                ? 'Collected' + (collector ? ' by ' + collector : '')
+                : work.dataset.price;
             blurb.textContent = work.dataset.blurb;
             inquire.dataset.inquiry = collected
                 ? "I love '" + work.dataset.title + "'. Is there similar work available or in progress?"
