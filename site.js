@@ -1,18 +1,19 @@
 // ANDREA ESTEP — shared behavior for index.html and collection.html.
 // Every block guards on element existence so both pages can use this file.
 
-// Venice local time in the header, with a blinking timestamp colon
+// Venice local time (header + mobile hero), with a blinking timestamp colon
 (function () {
-    const el = document.getElementById('venice-time');
-    if (!el) return;
+    const els = document.querySelectorAll('.locale-time');
+    if (!els.length) return;
     const fmt = new Intl.DateTimeFormat('en-US', {
         hour: 'numeric', minute: '2-digit', timeZone: 'America/Los_Angeles'
     });
     const tick = () => {
         const parts = fmt.formatToParts(new Date());
         const get = (type) => (parts.find((p) => p.type === type) || {}).value || '';
-        el.innerHTML = '· ' + get('hour') + '<span class="tick">:</span>' +
+        const html = '· ' + get('hour') + '<span class="tick">:</span>' +
             get('minute') + ' ' + get('dayPeriod');
+        els.forEach((el) => { el.innerHTML = html; });
     };
     tick();
     setInterval(tick, 30000);
@@ -20,13 +21,13 @@
 
 // Venice current temperature (open-meteo, no API key; silent if unreachable)
 (function () {
-    const el = document.getElementById('venice-temp');
-    if (!el) return;
+    const els = document.querySelectorAll('.locale-temp');
+    if (!els.length) return;
     fetch('https://api.open-meteo.com/v1/forecast?latitude=33.985&longitude=-118.469&current=temperature_2m&temperature_unit=fahrenheit')
         .then((r) => r.json())
         .then((d) => {
             const t = Math.round(d.current.temperature_2m);
-            if (!isNaN(t)) el.textContent = '· ' + t + '°F';
+            if (!isNaN(t)) els.forEach((el) => { el.textContent = '· ' + t + '°F'; });
         })
         .catch(() => {});
 })();

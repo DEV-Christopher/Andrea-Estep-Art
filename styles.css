@@ -187,6 +187,10 @@ header.scrolled { border-bottom-color: var(--hairline-soft); }
 }
 @keyframes tickblink { 50% { opacity: 0; } }
 
+/* Mobile-only copy of the locale line, shown in the hero / page head
+   because the fixed header has no room for it on small screens */
+.locale-hero { display: none; }
+
 /* ---------- Buttons ---------- */
 .btn {
     display: inline-flex;
@@ -845,7 +849,7 @@ footer {
     .works-grid, .collection-grid, .work { display: block; }
     .works-grid .work:nth-child(n), .collection-grid .work:nth-child(n) { margin-top: 0; }
     .works-grid .work + .work, .collection-grid .work + .work { margin-top: 56px; }
-    .locale .locale-time, .locale .locale-temp { display: none; }
+    header .locale .locale-time, header .locale .locale-temp { display: none; }
 }
 
 @media (max-width: 680px) {
@@ -853,7 +857,8 @@ footer {
     .header-inner { flex-wrap: wrap; gap: 10px; padding-top: 14px; padding-bottom: 12px; }
     .main-nav { order: 3; width: 100%; gap: 20px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
     .main-nav::-webkit-scrollbar { display: none; }
-    .locale { display: none; }
+    header .locale { display: none; }
+    .locale-hero { display: flex; margin-bottom: 26px; }
     html { scroll-padding-top: 110px; }
     .hero { padding-top: 150px; }
     .hero-sun { opacity: 0.5; }
