@@ -164,6 +164,25 @@ header.scrolled { border-bottom-color: var(--hairline-soft); }
 .main-nav a.current { color: var(--ink); }
 .main-nav a.current::after { transform: scaleX(1); }
 
+/* Hamburger toggle — mobile only */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 2px 10px 10px;
+}
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 0.3s ease;
+}
+.nav-toggle span + span { margin-top: 6px; }
+body.nav-open .nav-toggle span:first-child { transform: translateY(4px) rotate(45deg); }
+body.nav-open .nav-toggle span:last-child { transform: translateY(-4px) rotate(-45deg); }
+
 .locale {
     font-size: 12px;
     font-weight: 600;
@@ -854,18 +873,49 @@ footer {
 
 @media (max-width: 680px) {
     body { font-size: 16px; }
-    .header-inner { flex-wrap: wrap; gap: 10px; padding-top: 14px; padding-bottom: 12px; }
-    .main-nav { order: 3; width: 100%; gap: 20px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
-    .main-nav::-webkit-scrollbar { display: none; }
-    /* Collection is the only standalone page — give it a pill so it
-       doesn't read like just another anchor link */
-    .main-nav .nav-collection {
-        color: var(--paper);
-        background: var(--terracotta);
-        padding: 5px 14px;
-        border-radius: 999px;
+    .header-inner { padding-top: 14px; padding-bottom: 12px; }
+    .nav-toggle { display: block; }
+
+    /* Nav becomes a full-screen overlay. The header's backdrop-filter
+       makes it the containing block for fixed descendants, so size the
+       overlay explicitly from the header's top-left (which is 0,0)
+       rather than with inset. Wordmark and toggle get a higher z-index
+       so they stay visible and clickable on top. */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100svh;
+        z-index: 1;
+        background: var(--paper);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 8px;
+        padding: 90px 40px 48px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-    .main-nav .nav-collection::after { display: none; }
+    body.nav-open .main-nav { opacity: 1; visibility: visible; }
+    .wordmark, .nav-toggle { position: relative; z-index: 2; }
+    body.nav-open { overflow: hidden; }
+    .main-nav a {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 38px;
+        font-weight: 400;
+        text-transform: none;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+        padding: 6px 0;
+    }
+    .main-nav a::after { display: none; }
+    /* Collection is the only standalone page — sun mark + terracotta */
+    .main-nav .nav-collection { color: var(--terracotta); }
+    .main-nav .nav-collection::before { content: '✹ '; color: var(--sun); font-style: normal; }
+
     header .locale { display: none; }
     .locale-hero { display: flex; margin-bottom: 26px; }
     /* Locale line sits right below the eyebrow on mobile — drop the

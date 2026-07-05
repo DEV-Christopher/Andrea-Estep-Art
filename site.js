@@ -32,6 +32,20 @@
         .catch(() => {});
 })();
 
+// Mobile hamburger menu
+(function () {
+    const toggle = document.querySelector('.nav-toggle');
+    if (!toggle) return;
+    const setOpen = (open) => {
+        document.body.classList.toggle('nav-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setOpen(!document.body.classList.contains('nav-open')));
+    document.querySelectorAll('.main-nav a').forEach((a) =>
+        a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+})();
+
 // Header hairline on scroll
 (function () {
     const header = document.getElementById('site-header');
