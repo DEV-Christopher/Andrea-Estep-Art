@@ -107,17 +107,22 @@ function setInquiry(text) {
         work.addEventListener('click', (ev) => {
             ev.preventDefault();
             const collected = work.dataset.status === 'collected';
+            const coming = work.dataset.status === 'coming';
             const collector = work.dataset.collector;
             media.innerHTML = work.querySelector('.work-media').innerHTML;
             title.textContent = work.dataset.title;
             meta.textContent = work.dataset.meta;
             price.textContent = collected
                 ? 'Collected' + (collector ? ' by ' + collector : '')
-                : work.dataset.price;
+                : coming
+                    ? work.dataset.price + ' · Coming soon'
+                    : work.dataset.price;
             blurb.textContent = work.dataset.blurb;
             inquire.dataset.inquiry = collected
                 ? "I love '" + work.dataset.title + "'. Is there similar work available or in progress?"
-                : "I'm interested in '" + work.dataset.title + "' (" + work.dataset.price + "). Is it still available?";
+                : coming
+                    ? "I'd love first look at '" + work.dataset.title + "' when it's ready."
+                    : "I'm interested in '" + work.dataset.title + "' (" + work.dataset.price + "). Is it still available?";
             box.classList.add('open');
             document.body.style.overflow = 'hidden';
         });

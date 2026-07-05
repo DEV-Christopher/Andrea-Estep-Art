@@ -470,6 +470,18 @@ body.nav-open .nav-toggle span:last-child { transform: translateY(-4px) rotate(-
 .work-status.collected { color: #A87A1E; }
 .work-status.collected::before { background: var(--sun); }
 
+/* Coming soon: terracotta, with a gently pulsing dot */
+.work-status.coming { color: var(--terracotta); }
+.work-status.coming::before {
+    background: var(--terracotta);
+    animation: comingpulse 2.4s ease-out infinite;
+}
+@keyframes comingpulse {
+    0%   { box-shadow: 0 0 0 0 rgba(192, 91, 51, 0.45); }
+    70%  { box-shadow: 0 0 0 7px rgba(192, 91, 51, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(192, 91, 51, 0); }
+}
+
 .works-foot {
     margin-top: clamp(56px, 8vw, 96px);
     text-align: center;
